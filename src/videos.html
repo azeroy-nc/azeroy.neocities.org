@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Yabujin's videos - azeroy.neocities.org</title>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<link rel="stylesheet" href="http://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
+		<link rel="stylesheet" href="http://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css"/>
+		<script src="http://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+		<script src="http://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+		<script>
+$(document).ready( function () {
+    $('#video-table').addClass('display').addClass('no-wrap').dataTable( {
+	responsive: true,
+    columnDefs: [
+        { responsivePriority: -10001, targets: [0, 1, 2, 3, 4, 5, 6] },
+    ]
+	} );
+} );
+
+		</script>
+		<link rel="stylesheet" href="style.css"/>
+	</head>
+	<body style="max-width: 1000px;">
+		<div class="text">
+			<h1>videos</h1>
+			<div class="warning"><b>warning!</b> General content warning for </b>. Additional content warnings are provided per-entry.</div>
+			<p>This is a list of most known Yabujin videos (excluding things from older channels, etc.).</p>
+			<p>If you don't know who Yabu is, check out the <a href="about.html">About Yabujin</a> section. In short, Yabujin is an artist who creates videos and music in a distinctive, old-web style.</p>
+			<h2>browsing the list</h2>
+			<ul>
+				<li>Click on the + next to each video title to see more information - links, notes, sources, content warnings...</li>
+				<li>If you see a spoiler (like <span class="spoiler">this</span>), hover on it to reveal the text.</li>
+				<li>The "Status" column contains the status of the video: "up" if it's officially available, "purged" if it was deleted in the <a href="/misc/purge.html">2021 account purge</a>, "privated" if it was privated/deleted before the purge or "lost" if the video is currently lost and not preserved anywhere.</li>
+			</ul>
+			{{ table('video') }}
+		</div>
+	</body>
+</html>

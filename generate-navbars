@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import yaml
+
+parser = argparse.ArgumentParser(description='Automatically generates navbar data. Run this if you add/remove/move any files, and modify the output.')
+parser.add_argument('source', type=str, help='directory with source files')
+
+args = parser.parse_args()
+
+def scan_directory(directory):
+	navbar_data = {}
+	original_navbar_data = {}
+
+	if os.path.basename(directory) in ('img', 'static') or \
+			os.path.exists(os.path.join(directory, '.noscan')):
+		return
+
+	navbar_data_path = os.path.join(directory, 'navbar.yml')
+	if os.path.exists(navbar_data_path):
+		with open(navbar_data_path) as data_file:
+			navbar_data = yaml.safe_load(data_file.read())
+			if navbar_data:
+				original_navbar_data = navbar_data.copy()
+			else:
+				navbar_data = {}
+
+	scanned_files = []
+
+	for filename in os.listdir(directory):
+		full_path = os.path.join(directory, filename)
+
+		if os.path.isdir(full_path):
+			scan_directory(full_path)
+			if os.path.exists(os.path.join(full_path, 'index.html')):
+				if f'{filename}.' not in navbar_data.keys():
+					navbar_data[f'{filename}.'] = filename.capitalize()
+
+		elif filename.endswith('html'):
+			if filename == 'base.html':
+				continue
+
+			if os.path.exists(full_path.replace('.html', '.md')):
+				# Get page name
+				with open(full_path.replace('.html', '.md')) as md_file:
+					prettyname = md_file.read().split('\n', 1)[0].replace('# ', '')
+			else:
+				prettyname = filename.replace('-', ' ').replace('.html', '').capitalize()
+
+			stripped_filename = filename.split('.', maxsplit=1)[0]
+			if stripped_filename not in navbar_data.keys():
+				navbar_data[stripped_filename] = prettyname
+
+		elif filename.endswith('md'):
+			if filename.replace('.md', '.html') not in scanned_files and \
+					os.path.exists(full_path.replace('.md', '.html')):
+				with open(full_path) as md_file:
+					prettyname = md_file.read().split('\n', 1)[0].replace('# ', '')
+
+				stripped_filename = filename.split('.', maxsplit=1)[0]
+				if stripped_filename not in navbar_data.keys():
+					navbar_data[stripped_filename] = prettyname
+
+		scanned_files.append(filename)
+
+	if navbar_data != original_navbar_data:
+		with open(navbar_data_path, 'w') as data_file:
+			data_file.write(yaml.dump(navbar_data))
+
+scan_directory(args.source)
