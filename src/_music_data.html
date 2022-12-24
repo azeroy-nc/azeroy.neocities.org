@@ -1,10 +1,7 @@
-<html>
-	<head>
-		<title>{{ item.name }}</title>
-	</head>
+{% extends "_base.html" %}
 
-	<body>
-		{{ infopage('music', item.id) }}
-		{{ footer }}
-	</body>
-</html>
+{% set title = item.title %}
+
+{% block content %}
+	{{ infopage('music', item.id) }}
+{% endblock %}

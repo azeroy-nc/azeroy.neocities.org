@@ -36,8 +36,13 @@ def generate_navbar(basedir, data, current_page):
 	file.
 	"""
 	navbar = "<ul>"
+	if not basedir.startswith('/'):
+		basedir = '/' + basedir
 
-	for filename, prettyname in data:
+	if basedir != '/':
+		navbar += '<li><a href="/">Back to index</a></li>'
+
+	for prettyname, filename in data:
 		if not prettyname:
 			prettyname = filename.replace('-', ' ').capitalize()
 

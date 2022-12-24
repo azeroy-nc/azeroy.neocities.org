@@ -37,7 +37,7 @@ def scan_directory(directory):
 				if f'{filename}.' not in navbar_data.keys():
 					navbar_data[f'{filename}.'] = filename.capitalize()
 
-		elif filename.endswith('html'):
+		elif filename.endswith('html') and not filename.startswith('_'):
 			if filename == 'base.html':
 				continue
 
@@ -49,18 +49,19 @@ def scan_directory(directory):
 				prettyname = filename.replace('-', ' ').replace('.html', '').capitalize()
 
 			stripped_filename = filename.split('.', maxsplit=1)[0]
-			if stripped_filename not in navbar_data.keys():
-				navbar_data[stripped_filename] = prettyname
+			if stripped_filename not in navbar_data.values():
+				navbar_data[prettyname] = stripped_filename
 
 		elif filename.endswith('md'):
 			if filename.replace('.md', '.html') not in scanned_files and \
-					os.path.exists(full_path.replace('.md', '.html')):
+					os.path.exists(full_path.replace('.md', '.html')) or \
+					os.path.exists(os.path.join(directory, '_base.html')):
 				with open(full_path) as md_file:
 					prettyname = md_file.read().split('\n', 1)[0].replace('# ', '')
 
 				stripped_filename = filename.split('.', maxsplit=1)[0]
-				if stripped_filename not in navbar_data.keys():
-					navbar_data[stripped_filename] = prettyname
+				if stripped_filename not in navbar_data.values():
+					navbar_data[prettyname] = stripped_filename
 
 		scanned_files.append(filename)
 

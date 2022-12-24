@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
 
+{% set title = item.title %}
+
 {% block content %}
 	{{ infopage('video', item.id) }}
 {% endblock %}
