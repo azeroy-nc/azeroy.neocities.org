@@ -11,8 +11,11 @@ import googleapiclient.errors
 import isodate
 import datetime
 
-CHANNEL_ID = "UC5Inc-RJGL9LGDDD-0CCtmA"
-CHANNEL_REF = 'gyrotta'
+#CHANNEL_ID = "UC5Inc-RJGL9LGDDD-0CCtmA"
+#CHANNEL_REF = 'gyrotta'
+
+CHANNEL_ID = "UCTa23iZGmKYdyQ_hijXl3bg"
+CHANNEL_REF = 'yabujin'
 
 scopes = ["https://www.googleapis.com/auth/youtube.force-ssl"]
 

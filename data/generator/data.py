@@ -14,15 +14,35 @@ This utility can convert the input data files into an HTML table.
 """
 
 class AlbumTrack:
-    def __init__(self, parent, data):
+    def __init__(self, parent, id, data):
         self.parent = parent
-        self.id = parent.id
+        self.id = str(id)
         self.data = data
 
         required_keys = ['title', 'track_number']
         for key in required_keys:
             if key not in data:
-                raise KeyError(f'item {self.id} missing required key {key}')
+                raise KeyError(f'item {self.id} (of {parent.id}) missing required key {key}')
+
+    def format(self, value):
+        if value == 'title':
+            return self.title
+        elif value == 'track_number':
+            return self.track_number
+        elif value == 'length':
+            return self.length
+        elif value == 'links':
+            return self.links
+        elif value == 'notes':
+            return self.notes
+        elif value == 'original_description':
+            return self.original_description
+        elif value == 'sources':
+            return self.sources
+
+    @property
+    def account(self):
+        return self.parent.account
 
     @property
     def track_number(self):
@@ -35,7 +55,53 @@ class AlbumTrack:
     @property
     def length(self):
         try:
-            return int(self.data['length'])
+            _length = int(self.data['length'])
+        except KeyError:
+            return None
+
+        # Get human-readable version of length
+        length_min, length_sec = divmod(_length, 60)
+        length_hour, length_min = divmod(length_min, 60)
+
+        if length_hour:
+            length_readable = '{h}∶{m}∶{s}'.format(
+                h=str(length_hour).rjust(2, '0'),
+                m=str(length_min).rjust(2, '0'),
+                s=str(length_sec).rjust(2, '0')
+            )
+        else:
+            length_readable = '{m}∶{s}'.format(
+                m=str(length_min).rjust(2, '0'),
+                s=str(length_sec).rjust(2, '0')
+            )
+
+        return length_readable
+
+    @property
+    def links(self):
+        try:
+            return self.data['links']
+        except KeyError:
+            return None
+
+    @property
+    def notes(self):
+        try:
+            return self.data['notes']
+        except KeyError:
+            return None
+
+    @property
+    def sources(self):
+        try:
+            return self.data['sources']
+        except KeyError:
+            return None
+
+    @property
+    def original_description(self):
+        try:
+            return self.data['original_description']
         except KeyError:
             return None
 
@@ -45,7 +111,7 @@ class Item:
     """
     def __init__(self, item_type, id, data=None):
         self.item_type = item_type
-        self.id = id
+        self.id = str(id)
         self.data = data
 
         required_keys = ['title', 'type', 'status']
@@ -96,6 +162,12 @@ class Item:
             return self.sources
         elif value == 'series':
             return self.series
+        elif value == 'tracks':
+            return self.tracks
+        elif value == 'views':
+            return self.views
+        elif value == 'plays':
+            return self.plays
 
     @property
     def title(self):
@@ -103,6 +175,14 @@ class Item:
 
     @property
     def account(self):
+        return self.data['account']
+
+    @property
+    def account_readable(self):
+        if self.data['account'] == 'yabujin':
+            return 'YABUJIN'
+        elif self.data['account'] == 'gyrotta':
+            return 'DJ GYROTTA ZAO'
         return self.data['account']
 
     @property
@@ -228,10 +308,24 @@ class Item:
             raise KeyError('item "{id}" missing required key "tracks"'.format(id=self.id))
 
         output = []
-        for track in _tracks:
-            output.append(AlbumTrack(self, track))
+        for track_id, track in _tracks.items():
+            output.append(AlbumTrack(self, track_id, track))
 
         return output
+
+    @property
+    def views(self):
+        try:
+            return self.data['views']
+        except KeyError:
+            return None
+
+    @property
+    def plays(self):
+        try:
+            return self.data['plays']
+        except KeyError:
+            return None
 
 def dict_to_item_list(item_type, input_dict):
     """Takes a dictionary containing track data and returns a list of Item objects."""

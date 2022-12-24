@@ -5,7 +5,7 @@ distimiya-6:
   account: yabujin
   status: up
   length: 115
-  notes: The name of the track references a Russian mod of the game Serious Sam of the same name. After the [purge](misc/2021-purge.html), this was the only remaining track, alongside a repost of [ZETRAKORE XAOS DA JUMPING GARGOYLZ](zetrakore-xaos-da-jumping-gargoylz).
+  notes: The name of the track references a Russian mod of the game Serious Sam of the same name. After the [purge](/misc/2021-purge.html), this was the only remaining track, alongside a repost of [ZETRAKORE XAOS DA JUMPING GARGOYLZ](/video/zetrakore-xaos-da-jumping-gargoylz).
   original_description: "ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ты погибнешь ."
 
 claws-ep:
@@ -14,7 +14,7 @@ claws-ep:
   account: yabujin
   status: up
   type: ep
-  notes: SoundCloud name is "CLAWS 2K20 LEAK DELUXE", and the release date is listed as "2020-08-16". It's likely that this is indeed a collection of unreleased tracks from 2020; the release date month and day come together to be "8" and "16", [important numbers in the lore](misc/numbers.md), and likely isn't 100% accurate (confirmed by the fact that [???](bonus) also has a similar release date/month quirk).
+  notes: SoundCloud name is "CLAWS 2K20 LEAK DELUXE", and the release date is listed as "2020-08-16". It's likely that this is indeed a collection of unreleased tracks from 2020; the release date month and day come together to be "8" and "16", [important numbers in the lore](/misc/numbers.md), and likely isn't 100% accurate (confirmed by the fact that [???](/music/bonus) also has a similar release date/month quirk).
   original_description: None
   links:
     "SoundCloud (official)": https://soundcloud.com/yabujin/sets/claws
@@ -28,6 +28,7 @@ claws-ep:
       links:
         "SoundCloud (official)": https://soundcloud.com/yabujin/cell
         "Spotify (official)": https://open.spotify.com/track/3dNcIDBzYf1NlxNfgimqjY
+      track_number: 1
     dear:
       title: "DEAR"
       length: 58
@@ -35,6 +36,7 @@ claws-ep:
       links:
         "SoundCloud (official)": https://soundcloud.com/yabujin/dear
         "Spotify (official)": https://open.spotify.com/track/1LT4ichlVp82Jg02IAgSwM
+      track_number: 2
     liquid-fairy-corp:
       title: "LIQUID FAIRY CORP."
       length: 80
@@ -42,6 +44,7 @@ claws-ep:
       links:
         "SoundCloud (official)": https://soundcloud.com/yabujin/liquid-fairy-corp
         "Spotify (official)": https://open.spotify.com/track/71XLr8QK6LQxMVhEZAoy8i
+      track_number: 3
     mirror:
       title: "MIRROR"
       length: 41
@@ -49,6 +52,7 @@ claws-ep:
       links:
         "SoundCloud (official)": https://soundcloud.com/yabujin/mirror
         "Spotify (official)": https://open.spotify.com/track/2jFrcsf5xMhJQTj8YK6c7K
+      track_number: 4
     gone-fishin:
       title: "GONE FISHIN'"
       length: 87
@@ -56,13 +60,14 @@ claws-ep:
       links:
         "SoundCloud (official)": https://soundcloud.com/yabujin/gone-fishin
         "Spotify (official)": https://open.spotify.com/track/6oljZSiC0fuDGLBJHG9neK
+      track_number: 5
 
 bonus:
   title: "？？？？"
   account: yabujin
   release_date: [2022, 09, 30]
   type: album
-  notes: SoundCloud name is "？？？？ 2021）", and the release date is listed as 2021-08-16. It's likely that this is indeed a collection of unreleased tracks from 2021; the release date month and day come together to be "8" and "16", [important numbers in the lore](misc/numbers.md), and likely isn't 100% accurate (confirmed by the fact that [CLAWS](claws-ep) also has a similar release date/month quirk).
+  notes: SoundCloud name is "？？？？ 2021）", and the release date is listed as 2021-08-16. It's likely that this is indeed a collection of unreleased tracks from 2021; the release date month and day come together to be "8" and "16", [important numbers in the lore](/misc/numbers.md), and likely isn't 100% accurate (confirmed by the fact that [CLAWS](/music/claws-ep) also has a similar release date/month quirk).
   original_description: "https://www.youtube.com/watch?v=YJdWZR-YXT0"
   status: up
   links:
@@ -75,6 +80,7 @@ bonus:
       original_description: None
       links:
         "SoundCloud (official)": https://soundcloud.com/yabujin/enter
+      track_number: 1
     birth:
       title: "BIRTH"
       length: 184
@@ -83,24 +89,28 @@ bonus:
       links:
         "SoundCloud (official)": https://soundcloud.com/yabujin/birth-1
         "Spotify (official)": https://open.spotify.com/track/1jVT0hWBlmR61SkGhZdcPD
+      track_number: 2
     hypermangan-i:
       title: "HYPERMANGAN I"
       length: 25
       original_description: None
       links:
         "SoundCloud (official)": https://soundcloud.com/yabujin/hypermangan-i
+      track_number: 3
     tirijinas-pandemonium:
       title: "TIRIJINAS PANDEMONIUM"
       length: 169
       original_description: None
       links:
         "SoundCloud (official)": https://soundcloud.com/yabujin/tirijinas-pandemonium
+      track_number: 4
     hypermangan-ii:
       title: "HYPERMANGAN II"
       length: 113
       original_description: None
       links:
         "SoundCloud (official)": https://soundcloud.com/yabujin/hypermangan-ii
+      track_number: 5
 
 flash-desire:
   title: FLASH DESIRE
@@ -116,41 +126,49 @@ flash-desire:
       length: 121
       links:
         "Spotify (official)": https://open.spotify.com/track/2psd1M8G32Fbhjnh7W9hzN
+      track_number: 1
     drugs-in-her-room:
       title: DRUGS IN HER ROOM
       length: 65
       links:
         "Spotify (official)": https://open.spotify.com/track/1T0J5syNHl7PGejYZt9qfZ
+      track_number: 2
     unfamiliar-oasis:
       title: UNFAMILIAR OASIS
       length: 154
       links:
         "Spotify (official)": https://open.spotify.com/track/1HjXUmWo7CzwZ1P3pTmmrx
+      track_number: 3
     fantasy-and-mana:
       title: FANTASY AND MANA
       length: 157
       links:
         "Spotify (official)": https://open.spotify.com/track/4lP4qUa8ON3g1NUi4K1Pfv
+      track_number: 4
     secret-grottoes:
       title: SECRET GROTTOES
       length: 127
       links:
         "Spotify (official)": https://open.spotify.com/track/6YRCe8MaPruJKZNYwqEfp4
+      track_number: 5
     north-korean-narcos:
       title: NORTH KOREAN NARCOS
       length: 156
       links:
         "Spotify (official)": https://open.spotify.com/track/5rxXZLg4ksEVYQNlTnWvJI
+      track_number: 6
     rebus:
       title: REBUS
       length: 99
       links:
         "Spotify (official)": https://open.spotify.com/track/6I4bp83GCBsfmMP8uaE6t3
+      track_number: 7
     flash-desire:
       title: FLASH DESIRE
       length: 159
       links:
         "Spotify (official)": https://open.spotify.com/track/3CB97rIieetvP4yGvT3X1g
+      track_number: 8
 
 ave-xp:
   title: AVE XP
@@ -193,26 +211,31 @@ swords-ep:
       length: 63
       links:
         "Spotify (official)": https://open.spotify.com/track/3Zh2YHmCOIr8qh5YMRPfat
+      track_number: 1
     dear-gatekeeper:
       title: DEAR GATEKEEPER
       length: 164
       links:
         "Spotify (official)": https://open.spotify.com/track/7fRPxuj048XD68CaACJtYH
+      track_number: 2
     in-fantasy-i-trust:
       title: IN FANTASY I TRUST
       length: 122
       links:
         "Spotify (official)": https://open.spotify.com/track/1cRBZxn5mUqz3x8LkPMny2
+      track_number: 3
     tower-of-our-serenity:
       title: TOWER OF OUR SERENITY
       length: 163
       links:
         "Spotify (official)": https://open.spotify.com/track/4oc7dzznyhRjB042LQgwW3
+      track_number: 4
     renegade:
       title: RENEGADE
       length: 128
       links:
         "Spotify (official)": https://open.spotify.com/track/7hcJlphTpHDGjC2udKk8Dk
+      track_number: 5
 
 crystal-helix:
   title: CRYSTAL HELIX
@@ -273,16 +296,19 @@ baroque-ep:
       length: 130
       links:
         "Spotify (official)": https://open.spotify.com/track/61KTWO81lZhsYdp244OZAV
+      track_number: 1
     garden:
       title: GARDEN
       length: 174
       links:
         "Spotify (official)": https://open.spotify.com/track/1725HnRRdDQ5VPBXZbfohA
+      track_number: 2
     fetus:
       title: FETUS
       length: 123
       links:
         "Spotify (official)": https://open.spotify.com/track/07XfXsd8DiPHCVkAgKe10k
+      track_number: 3
 
 8888each-divinity:
   title: 8888EACH DIVINITY
@@ -319,13 +345,3 @@ baath-equipment-thief:
   status: up
   links:
     "Spotify (official)": https://open.spotify.com/album/1SwiYoLc1GcF55OXmaLlpG
-
-kruh-mukhomor:
-  title: круг мухомор
-  account: ligonis85
-  type: single
-  release_date: [2022, 10, 21]
-  status: up
-  original_description: None
-  links:
-    "SoundCloud (official)": https://soundcloud.com/abortas/krug-mukhomor

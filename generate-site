@@ -7,7 +7,8 @@ import argparse
 import shutil
 import yaml
 
-from data.generator.html import html_from_file
+from data.generator.html import boxlist_from_file, infopage_from_file
+from data.generator import load_data_from_file
 
 parser = argparse.ArgumentParser(description='Generates the website from sources in the provided folder.')
 parser.add_argument('source', type=str, help='directory with source files')
@@ -15,8 +16,11 @@ parser.add_argument('output', type=str, default='output', help='directory to out
 
 args = parser.parse_args()
 
-def render_table(type):
-	return html_from_file(type, os.path.join('data', f'{type}-data.yml'))
+def render_boxlist(type):
+	return boxlist_from_file(type, os.path.join('data', f'{type}-data.yml'))
+
+def render_infopage(type, _id):
+	return infopage_from_file(type, os.path.join('data', f'{type}-data.yml'), _id)
 
 def generate_navbar(basedir, data, current_page):
 	"""
@@ -54,7 +58,8 @@ def render_template(html_path, md_path=None, footer_path=None,
 	"""Renders the template for the provided file."""
 	with open(html_path) as file:
 		template = Template(file.read())
-		template.globals['table'] = render_table
+		template.globals['boxlist'] = render_boxlist
+		template.globals['infopage'] = render_infopage
 
 		if footer_path:
 			with open(footer_path) as footer_file:
@@ -104,6 +109,8 @@ def scan_directory(directory, output_dir):
 				base_path = full_path
 			elif filename == 'footer.html':
 				footer_path = full_path
+			elif filename == 'video-data.html' or filename == 'music-data.html':
+				continue
 			else:
 				templatable_files.append(filename)
 
@@ -177,4 +184,37 @@ def scan_directory(directory, output_dir):
 			if not os.path.exists(os.path.join(full_path, '.noscan')):
 				scan_directory(full_path, os.path.join(output_dir, filename))
 
+def generate_data_pages(source_dir, output_dir):
+	footer_path = os.path.join(source_dir, 'footer.html')
+
+	navbar_data = []
+	navbar_data_path = os.path.join(source_dir, 'navbar.yml')
+	if os.path.exists(navbar_data_path):
+		with open(navbar_data_path) as navbar_data_file:
+			_navbar_data = yaml.safe_load(navbar_data_file.read())
+		if _navbar_data:
+			for filename, prettyname in _navbar_data.items():
+				navbar_data.append( (filename, prettyname) )
+
+	navbar_data = ('/', navbar_data)
+
+	for _type in ('video', 'music'):
+		template = os.path.join(source_dir, f'{_type}-data.html')
+		data = load_data_from_file(type, os.path.join('data', f'{_type}-data.yml'))
+		type_target_dir = os.path.join(output_dir, _type)
+		if not os.path.exists(type_target_dir):
+			os.mkdir(type_target_dir)
+		for item in data:
+			print(item.id, type(item.id))
+			target_dir = os.path.join(type_target_dir, item.id)
+			if not os.path.exists(target_dir):
+				os.mkdir(target_dir)
+
+			target_path = os.path.join(target_dir, 'index.html')
+			with open(target_path, 'w') as target_file:
+				target_file.write(render_template(
+					template, None, footer_path, navbar_data, {"item": item}
+				))
+
 scan_directory(args.source, args.output)
+generate_data_pages(args.source, args.output)

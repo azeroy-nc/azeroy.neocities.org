@@ -27,13 +27,13 @@ body {
 	text-align: center;
 }
 
-.spoiler {
+.spoiler, .infopage-content code {
 	display: inline-block;
 	background-color: #333;
 	color: #333;
 }
 
-.spoiler:hover {
+.spoiler:hover, .infopage-content code:hover {
 	color: #fff;
 }
 
