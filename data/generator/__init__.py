@@ -2,7 +2,7 @@
 import json
 import yaml
 
-def load_data_from_file(item_type, path):
+def load_data_from_file(item_type, path, _id=None):
     from .data import dict_to_item_list
     with open(path, 'r') as file:
         if path.endswith('.json'):
@@ -10,4 +10,4 @@ def load_data_from_file(item_type, path):
         elif path.endswith('.yml'):
             data_raw = yaml.safe_load(file)
 
-        return dict_to_item_list(item_type, data_raw)
+        return dict_to_item_list(item_type, data_raw, _id)

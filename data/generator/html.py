@@ -61,7 +61,7 @@ def generate_infopage_content(item):
     return html
 
 def infopage_from_file(type, source, _id):
-    data = load_data_from_file(type, source)
+    data = load_data_from_file(type, source, _id)
     item = None
     for i in data:
         if i.id == _id:

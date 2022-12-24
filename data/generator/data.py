@@ -327,9 +327,11 @@ class Item:
         except KeyError:
             return None
 
-def dict_to_item_list(item_type, input_dict):
+def dict_to_item_list(item_type, input_dict, _id=None):
     """Takes a dictionary containing track data and returns a list of Item objects."""
     output = []
     for id, data in input_dict.items():
+        if _id and not id == _id:
+            continue
         output.append(Item(item_type, id, data))
     return output

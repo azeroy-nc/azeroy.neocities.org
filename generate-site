@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import jinja2
 from jinja2 import Template
 import markdown
 import os
@@ -56,23 +57,25 @@ def generate_navbar(basedir, data, current_page):
 def render_template(html_path, md_path=None, footer_path=None,
 					navbar_data=None, data={}):
 	"""Renders the template for the provided file."""
-	with open(html_path) as file:
-		template = Template(file.read())
-		template.globals['boxlist'] = render_boxlist
-		template.globals['infopage'] = render_infopage
+	template_loader = jinja2.FileSystemLoader(searchpath=os.path.dirname(html_path))
+	template_env = jinja2.Environment(loader=template_loader)
+	template = template_env.get_template(os.path.basename(html_path))
 
-		if footer_path:
-			with open(footer_path) as footer_file:
-				data["footer"] = footer_file.read().rstrip()
-		if navbar_data:
-			current_page = os.path.basename(html_path).split('.')[0]
-			data["navbar"] = generate_navbar(navbar_data[0], navbar_data[1], current_page)
-		if md_path:
-			with open(md_path) as md_file:
-				data["markdown"] = markdown.markdown(md_file.read())
-				data["pagename"] = md_file.read().split('\n', 1)[0].replace('# ', '')
+	template.globals['boxlist'] = render_boxlist
+	template.globals['infopage'] = render_infopage
 
-		return template.render(data)
+	if footer_path:
+		with open(footer_path) as footer_file:
+			data["footer"] = footer_file.read().rstrip()
+	if navbar_data:
+		current_page = os.path.basename(html_path).split('.')[0]
+		data["navbar"] = generate_navbar(navbar_data[0], navbar_data[1], current_page)
+	if md_path:
+		with open(md_path) as md_file:
+			data["markdown"] = markdown.markdown(md_file.read())
+			data["pagename"] = md_file.read().split('\n', 1)[0].replace('# ', '')
+
+	return template.render(data)
 
 # TODO: this runs in two loops because it initially was meant to generate
 # the navbar, now that that's done in a separate script we may be able to
@@ -105,11 +108,11 @@ def scan_directory(directory, output_dir):
 			subdirectories.append(filename)
 
 		elif filename.endswith('html'):
-			if filename == 'base.html':
+			if filename == '_base.html':
 				base_path = full_path
-			elif filename == 'footer.html':
+			elif filename == '_footer.html':
 				footer_path = full_path
-			elif filename == 'video-data.html' or filename == 'music-data.html':
+			elif filename.startswith('_'):
 				continue
 			else:
 				templatable_files.append(filename)
@@ -185,7 +188,7 @@ def scan_directory(directory, output_dir):
 				scan_directory(full_path, os.path.join(output_dir, filename))
 
 def generate_data_pages(source_dir, output_dir):
-	footer_path = os.path.join(source_dir, 'footer.html')
+	footer_path = os.path.join(source_dir, '_footer.html')
 
 	navbar_data = []
 	navbar_data_path = os.path.join(source_dir, 'navbar.yml')
@@ -199,7 +202,7 @@ def generate_data_pages(source_dir, output_dir):
 	navbar_data = ('/', navbar_data)
 
 	for _type in ('video', 'music'):
-		template = os.path.join(source_dir, f'{_type}-data.html')
+		template = os.path.join(source_dir, f'_{_type}_data.html')
 		data = load_data_from_file(type, os.path.join('data', f'{_type}-data.yml'))
 		type_target_dir = os.path.join(output_dir, _type)
 		if not os.path.exists(type_target_dir):
