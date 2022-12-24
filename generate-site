@@ -54,7 +54,10 @@ def generate_navbar(basedir, data, current_page):
 		if current_page == filename:
 			navbar += f'<li><span class="selected">{prettyname}</span></li>'
 		else:
-			navbar += f'<li><a href="{basedir}/{filepath}">{prettyname}</a></li>'
+			if basedir != '/':
+				navbar += f'<li><a href="{basedir}/{filepath}">{prettyname}</a></li>'
+			else:
+				navbar += f'<li><a href="/{filepath}">{prettyname}</a></li>'
 
 	navbar += '</ul>'
 	return navbar
