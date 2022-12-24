@@ -10,7 +10,7 @@ def generate_box(item):
 
     html += '\n\t<a class="itembox-thumbnail"></a>'
 
-    html += f'\n\t<h2 class="itembox-title"><a class="itembox-title-link" href="/{item.type}/{item.id}/">{item.title}</a></h2>'
+    html += f'\n\t<h2 class="itembox-title"><a class="itembox-title-link" href="/{item.item_type}/{item.id}/">{item.title}</a></h2>'
     html += f'\n\t<p><span class="itembox-channel">{item.account_readable}</span> · <span class="itembox-length">{item.length}</span></p>'
     html += f'\n\t<p><span class="itembox-date">{item.release_date}</span></p>'
 
