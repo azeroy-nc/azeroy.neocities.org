@@ -20,7 +20,7 @@ jobs:
       with:
         python-version: '3.11'
     - name: Install Python dependencies
-      run: pip3 install jinja2 markdown
+      run: pip3 install jinja2 markdown pyyaml
     - name: Build the site
       run: |
         ./generate-site src output
