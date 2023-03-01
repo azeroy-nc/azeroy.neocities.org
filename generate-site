@@ -134,7 +134,7 @@ def scan_directory(directory, output_dir):
 		elif filename.endswith('md'):
 			templatable_files.append(filename)
 
-		else:
+		elif not filename.endswith('yml') and not filename.endswith('yaml'):
 			shutil.copyfile(full_path, os.path.join(output_dir, filename))
 
 	output_basedir = output_dir.replace(args.output, '').replace('\\', '/')
