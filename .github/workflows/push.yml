@@ -20,7 +20,7 @@ jobs:
       with:
         python-version: '3.10'
     - name: Install Python dependencies
-      run: pip3 install jinja markdown
+      run: sudo apt install python3-jinja2 python3-markdown
     - name: Build the site
       run: |
         ./generate-site src output
