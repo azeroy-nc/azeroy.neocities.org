@@ -47,6 +47,7 @@
 - seen in horsefish https://discord.com/channels/792507243014651907/869635151469117490/912793767327711294
 - from claw web dx iirc https://discord.com/channels/792507243014651907/869635197086339122/961011529522765844 https://discord.com/channels/792507243014651907/869635151469117490/1025130862276251668
 - birth sample https://youtu.be/YYb9kSCkjE8?t=11
+- from zao https://www.youtube.com/watch?v=zH1PDR3DLMQ
 
 ## misc
 
@@ -69,3 +70,4 @@
 - new upload post dates https://discord.com/channels/792507243014651907/869635197086339122/922560345359413258
 - earlier works deletion request proof https://discord.com/channels/792507243014651907/869635151469117490/874127714544660551
 - restless dream song extended. https://discord.com/channels/792507243014651907/869635197086339122/963416358631120956 we have like 3 releases of this thing now lmao this deserves its own page
+- photo from one of the vids https://discord.com/channels/792507243014651907/869635197086339122/1055923615926866001

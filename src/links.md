@@ -1,3 +1,34 @@
+# Links
+
+Links to official Yabujin accounts:
+
+## Videos
+
+- YouTube: [YABUJIN](https://www.youtube.com/@YABUJIN)
+- YouTube: [\]I\[xXxXx_6YRథ్‌٣٣A_ЗАО\]I\[؟؟](https://www.youtube.com/@ixxxxx_6yra_i586)
+
+## Music
+
+### SoundCloud
+
+- [YABUJIN](https://soundcloud.com/yabujin)
+- [DJ Gyrotta Zao](https://soundcloud.com/gyrotta)
+- [NAMIALAGA](https://soundcloud.com/namialaga)
+- [ligonis84](https://soundcloud.com/abortas)
+
+### Streaming
+
+- [YouTube](https://www.youtube.com/channel/UCJ1TkqC1HAVOid-IKtcFHMQ)
+- [Spotify](https://open.spotify.com/artist/3xMSStWH6Wz2KAJqkZwXLu)
+- [Apple Music](https://music.apple.com/us/artist/yabujin/1593899067)
+- [Deezer](https://www.deezer.com/us/artist/155254452)
+
+## Instagram
+
+**Yabujin does not currently have an active Instagram account.** There are a handful of accounts he used to own, but most of these were squatted (usernames were taken by someone else). These include `za0za_0` and `16.88_yabujin_azeroy.hex`
+
+---
+
 # Reupload channels and bootlegs
 
 *For the section about uploads often claimed to be Yabujin's, see [Fake content].*

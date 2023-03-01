@@ -37,7 +37,7 @@ def generate_infopage_content(item):
     html += f'\n\t<div class="infopage-thumbnail"></div>'
     html += f'\n\t<h1>{item.title}</h1>'
 
-    values = ['title', 'type', 'account', 'series', 'status', 'length', 'release_date', 'links', 'original_description']
+    values = ['title', 'type', 'account', 'series', 'status', 'length', 'release_date']
 
     html += f'\n\t<table class="infopage-table {item.item_type}">\n\t\t<thead>'
     for value in values:
@@ -51,7 +51,7 @@ def generate_infopage_content(item):
         html += '\n\t\t\t</tr>'
     html += '\n\t</table>'
 
-    headered_values = ['notes', 'content_warnings', 'sources']
+    headered_values = ['links', 'notes', 'content_warnings', 'sources', 'original_description']
     for value in headered_values:
         html += f'\n\t<h2>{value.replace("_", " ").capitalize()}</h2>'
         html += f'\n\t<p>{transform(value, item.format(value))}</p>'
@@ -61,13 +61,14 @@ def generate_infopage_content(item):
     return html
 
 def infopage_from_file(type, source, _id):
-    data = load_data_from_file(type, source, _id)
+    data = load_data_from_file(type, source, str(_id))
     item = None
     for i in data:
-        if i.id == _id:
+        if str(i.id) == str(_id):
             item = i
             break
     if not item:
+        print("NO ITEM!!!", data)
         return ''
     return generate_infopage_content(item)
 
@@ -96,17 +97,29 @@ def transform_table(value):
         html += '\n\t\t\t</tr>'
     html += '\n\t</table>'
 
+    return html
+
 def transform_list(value):
     md = ''
     for item in value:
         md += f' * {item}\n'
     return transform_html(md)
 
+def transform_links(links):
+    html = '<ul>'
+    for label, link in links.items():
+        html += f'<li><a href="{link}" class="link">{label}</a></li>'
+    html += '</ul>'
+
+    return html
+
 def transform(_type, value):
     if not value:
         return '<span class="dim">N/A</span>'
-    if _type in ('links', 'sources'):
+    if _type == 'links':
+        return transform_links(value)
+    if isinstance(value, dict):
         return transform_table(value)
-    elif _type in ('content_warnings',):
+    elif isinstance(value, list):
         return transform_list(value)
     return transform_html(value)

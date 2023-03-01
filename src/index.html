@@ -1,23 +1,12 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>yabujin fansite - azeroy.neocities.org</title>
-		<link rel="stylesheet" href="style.css"/>
-	</head>
-	<body>
-		<div class="navbar">
-			{{ navbar }}
-		</div>
+{% extends "_base.html" %}
 
-		<div class="text">
-			<h1>welcome to Azeroy</h1>
-			<div class="warning"><b>warning!</b> Some of the content mentioned on this site contains elements that may be triggering in nature. <b>This content will be hidden behind appropriate warnings</b>, so don't worry about accidentally seeing something you don't like.</div>
-			<p>This is an archive of all things related to <b>YABUJIN</b> (a.k.a <b>DJ Gyrotta Zao</b>).</p>
-			<p>If you don't know who Yabu is, check out the <a href="about.html">About Yabujin</a> section. In short, Yabujin is an artist who creates videos and music in a distinctive, old-web style.</p>
-		</div>
+{% set title = "Videos" %}
 
-		<div class="footer">
-			{{ footer }}
-		</div>
-	</body>
-</html>
+{% block content %}
+	<div class="warning"><b>warning!</b> This page is very work-in-progress (as evidenced by the bare css and various bits of missing data...). If you'd like to help out in getting it looking nicer, see the "source code" link at the bottom of the page.</div>
+
+	<h1>welcome to Azeroy</h1>
+	<div class="warning"><b>warning!</b> Some of the content mentioned on this site contains elements that may be triggering in nature. <b>This content will be hidden behind appropriate warnings</b>, so don't worry about accidentally seeing something you don't like.</div>
+	<p>This is an archive of all things related to <b>YABUJIN</b> (a.k.a <b>DJ Gyrotta Zao</b>).</p>
+	<p>If you don't know who Yabu is, check out the <a href="about.html">About Yabujin</a> section. In short, Yabujin is an artist who creates videos and music in a distinctive, old-web style.</p>
+{% endblock %}

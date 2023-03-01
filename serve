@@ -1,0 +1,4 @@
+#!/bin/sh
+outdir=output
+if [ "$*" ]; then outdir="$*"; fi
+python -m http.server 8080 --bind 127.0.0.1 --directory $outdir

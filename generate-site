@@ -54,6 +54,7 @@ def generate_navbar(basedir, data, current_page):
 		if current_page == filename:
 			navbar += f'<li><span class="selected">{prettyname}</span></li>'
 		else:
+			print(current_page, filename)
 			if basedir != '/':
 				navbar += f'<li><a href="{basedir}/{filepath}">{prettyname}</a></li>'
 			else:
@@ -77,6 +78,9 @@ def render_template(html_path, md_path=None, footer_path=None,
 			data["footer"] = footer_file.read().rstrip()
 	if navbar_data:
 		current_page = os.path.basename(html_path).split('.')[0]
+		if current_page == '_base':
+			# we're dealing with a markdown page
+			current_page = os.path.basename(md_path).split('.')[0]
 		data["navbar"] = generate_navbar(navbar_data[0], navbar_data[1], current_page)
 	if md_path:
 		with open(md_path) as md_file:
