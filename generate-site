@@ -86,6 +86,8 @@ def render_template(html_path, md_path=None, footer_path=None,
 		with open(md_path) as md_file:
 			data["markdown"] = markdown.markdown(md_file.read())
 			data["pagename"] = md_file.read().split('\n', 1)[0].replace('# ', '')
+	else:
+		data["markdown"] = ''
 
 	return template.render(data)
 
@@ -180,6 +182,7 @@ def scan_directory(directory, output_dir):
 
 			target_path = os.path.join(output_dir, filename)
 			with open(target_path, 'w') as target_file:
+				print(full_path, md_path)
 				target_file.write(render_template(
 					full_path, md_path, footer_path, navbar_data
 				))
