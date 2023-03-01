@@ -503,7 +503,7 @@ mirroryyategilda:
   type: misc
   account: yabujin
   status: purged
-  content_warnings: **NSFW**. Contains an excerpt from hentai.
+  content_warnings: "**NSFW**, `contains excerpt of hentai`."
   links:
     - "YouTube (reupload, slightly censored, **NSFW**)": https://www.youtube.com/watch?v=pAudfW9neVw
 
